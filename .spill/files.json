@@ -1,0 +1,300 @@
+{
+  "S-2": [
+    {
+      "path": "package.json",
+      "change": "new"
+    },
+    {
+      "path": "bun.lock",
+      "change": "new"
+    },
+    {
+      "path": "scripts/build-ui.ts",
+      "change": "new"
+    },
+    {
+      "path": ".gitignore",
+      "change": "new"
+    },
+    {
+      "path": ".claude/launch.json",
+      "change": "new"
+    },
+    {
+      "path": "ui/index.html",
+      "change": "new"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "new"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "new"
+    },
+    {
+      "path": "ui/logo.svg",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/build.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/tauri.conf.json",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/capabilities/default.json",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/icons/",
+      "change": "new"
+    }
+  ],
+  "S-1": [
+    {
+      "path": "src-tauri/src/library.rs",
+      "change": "new"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "new"
+    },
+    {
+      "path": "ui/library.ts",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/tauri.conf.json",
+      "change": "changed"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/index.html",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    }
+  ],
+  "S-3": [
+    {
+      "path": "src-tauri/src/dictation.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/Info.plist",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/library.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "change": "changed"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    }
+  ],
+  "S-4": [
+    {
+      "path": "src-tauri/src/models.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/fetch.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/dictation.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/library.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/Cargo.toml",
+      "change": "changed"
+    }
+  ],
+  "S-5": [
+    {
+      "path": "ui/proofread.ts",
+      "change": "new"
+    },
+    {
+      "path": "ui/proofread.test.ts",
+      "change": "new"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/index.html",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/models.rs",
+      "change": "changed"
+    }
+  ],
+  "S-6": [
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/models.rs",
+      "change": "changed"
+    }
+  ],
+  "S-7": [
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/proofread.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/models.rs",
+      "change": "changed"
+    }
+  ],
+  "S-8": [
+    {
+      "path": "src-tauri/src/versions.rs",
+      "change": "new"
+    },
+    {
+      "path": "src-tauri/src/library.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/index.html",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    },
+    {
+      "path": "ui/proofread.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/proofread.test.ts",
+      "change": "changed"
+    }
+  ],
+  "S-9": [
+    {
+      "path": "src-tauri/src/versions.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/library.rs",
+      "change": "changed"
+    },
+    {
+      "path": "src-tauri/src/main.rs",
+      "change": "changed"
+    },
+    {
+      "path": "ui/main.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/api.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/library.ts",
+      "change": "changed"
+    },
+    {
+      "path": "ui/index.html",
+      "change": "changed"
+    },
+    {
+      "path": "ui/app.css",
+      "change": "changed"
+    }
+  ]
+}

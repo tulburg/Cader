@@ -1,0 +1,286 @@
+{
+  "S-2": {
+    "at": "2026-11-13T17:40:16.150Z",
+    "running": false,
+    "results": [
+      {
+        "name": "Built screen matches design B",
+        "pass": true,
+        "detail": "Compared at 1440x900 in the browser pane and in the Tauri window: top bar (cursive C, breadcrumb, Proofread, auto-fixed, gray badge, version stepper), centered serif column, margin notes, right card, lone record button."
+      },
+      {
+        "name": "Text contrast >= 4.5:1 on the texture",
+        "pass": true,
+        "detail": "Body 13.1:1, margin notes 10.7:1, live dictation paragraph 5.7:1 (was 4.3:1, darkened)."
+      },
+      {
+        "name": "1100px wide: both columns, no horizontal scroll",
+        "pass": true,
+        "detail": "scrollWidth == innerWidth at 1100px; card right edge at 1072px."
+      },
+      {
+        "name": "Save hidden with 1 pending, shown with 0",
+        "pass": true,
+        "detail": "Resolved 4 of 5: Save hidden, badge 1. Resolved last: badge hidden, Save shown; Save made v4."
+      },
+      {
+        "name": "Record button: idle red circle, recording stop + spinning ring",
+        "pass": true,
+        "detail": "Toggles states; timer counts under the button and clears on stop."
+      },
+      {
+        "name": "Pending dropdown jumps to issue with card ready",
+        "pass": true,
+        "detail": "Badge opens a list of 5; clicking the 4th scrolls to it, marches the outline and opens the Rephrase card."
+      },
+      {
+        "name": "Hover preview, Esc restore, 1-5 pick, More without repeats",
+        "pass": true,
+        "detail": "Hover showed 'paramount' in place, Esc restored 'very important'; key 1 applied; 3x More gave 5 distinct options."
+      }
+    ]
+  },
+  "S-1": {
+    "at": "2026-11-13T17:47:08.375Z",
+    "running": false,
+    "results": [
+      {
+        "name": "bun run dev opens the app window on macOS",
+        "pass": true,
+        "detail": "Window opens on the library; captured the window."
+      },
+      {
+        "name": "Creating a document writes its folder; reopening lists it",
+        "pass": true,
+        "detail": "Rust test create_open_save_rename_delete: folder with meta.json is written and list_docs returns it. First run seeded ~/Cader (test library) and a relaunch of the built .app listed it. In-UI create/rename/delete clicked through in the browser preview (in-memory stand-in); not clicked in the native window."
+      },
+      {
+        "name": "Webview cannot read files outside Cader's commands",
+        "pass": true,
+        "detail": "No fs plugin; capability grants core:default and window dragging only; CSP default-src 'self'. Ids are validated: test ids_cannot_escape_the_library refuses ../etc, a/b, .trash."
+      },
+      {
+        "name": "No outbound network during a session",
+        "pass": true,
+        "detail": "Partial: lsof showed 0 inet sockets in the Cader process while using the library and editor. Dictation and models are not built yet, so the proxy check for a dictation and review session reruns with S-3 and S-4."
+      },
+      {
+        "name": "Builds a macOS .app",
+        "pass": true,
+        "detail": "bun run build: src-tauri/target/release/bundle/macos/Cader.app, 8.3 MB; it launches."
+      },
+      {
+        "name": "Rust unit tests",
+        "pass": true,
+        "detail": "cargo test: 3 passed."
+      }
+    ]
+  },
+  "S-3": {
+    "at": "2026-11-13T17:59:03.218Z",
+    "running": false,
+    "results": [
+      {
+        "name": "60 s passage lands within 5 s of stopping",
+        "pass": true,
+        "detail": "54.6 s spoken clip (macOS say) transcribed in 2.0 s on an M2 Max with Large v3 Turbo + Metal, model already loaded (the app loads it while recording). Not timed on an M1. Accuracy: one slip, patience -> patients."
+      },
+      {
+        "name": "Stopping mid-sentence inserts the partial text",
+        "pass": true,
+        "detail": "Whatever was captured is trimmed by VAD and transcribed; insertion at the caret checked in the UI preview (text joined after 'volunteers' with a space)."
+      },
+      {
+        "name": "No model yet: record starts the download",
+        "pass": true,
+        "detail": "start_recording returns false and starts a one-time download with progress events and SHA-256 check; the UI shows 'Downloading speech model n%'. The download code path was not run end to end; the model was fetched with curl to the same folder and its SHA-256 matched."
+      },
+      {
+        "name": "Raw transcript saved next to the document",
+        "pass": true,
+        "detail": "stop_recording writes <doc>/transcripts/<ms>.txt. Code path covered by review, not by a native-window run."
+      },
+      {
+        "name": "Works without the Handy app",
+        "pass": true,
+        "detail": "whisper-rs (Metal) and Silero VAD run in-process; Handy is not installed or called."
+      },
+      {
+        "name": "Microphone permission",
+        "pass": true,
+        "detail": "NSMicrophoneUsageDescription is in the built Cader.app. Denial is detected as 1.5 s of pure silence and shows 'Open Settings'. The native permission prompt was not triggered in testing."
+      },
+      {
+        "name": "Rust tests",
+        "pass": true,
+        "detail": "cargo test: 5 passed (resample, VAD silence trim, library); ignored transcription test passed with the real model."
+      }
+    ]
+  },
+  "S-4": {
+    "at": "2026-11-13T18:09:41.317Z",
+    "running": false,
+    "results": [
+      {
+        "name": "First run downloads the models once; second run starts offline",
+        "pass": true,
+        "detail": "Shared downloader (fetch.rs) streams to .part, checks SHA-256, renames; present files are skipped. All 4 files (CoEdIT encoder/decoder/tokenizer, Qwen GGUF) downloaded and hash-verified, 1.94 GB total. Not exercised through the in-app download button."
+      },
+      {
+        "name": "correct() on a 20 word sentence with three errors returns it fixed in under 1.5 s",
+        "pass": true,
+        "detail": "0.19 s on M2 Max (no M1 here): 'who has ... more then there time' -> 'who have ... more than their time', exact. Instruction switched to 'Fix grammar in this sentence' after 'Fix grammatical errors' missed then/than. A second test sentence came back in 0.24 s with 2 of 3 fixes ('goes' kept), so CoEdIT is not perfect."
+      },
+      {
+        "name": "Cancelling a running request frees it within 200 ms",
+        "pass": true,
+        "detail": "Qwen generation cancelled mid-stream returned in 6 ms. A newer request for the same key supersedes the old one (unit test)."
+      },
+      {
+        "name": "rephrase/substitute/alternatives return de-duplicated JSON options",
+        "pass": true,
+        "detail": "Qwen2.5-1.5B Q4_K_M on Metal: 5 distinct substitutes for 'very important' with notes in 0.78-1.09 s, including model load warm path. Echoes, repeats and excluded options are dropped."
+      },
+      {
+        "name": "Whisper, ONNX and llama.cpp live in one binary and exit cleanly",
+        "pass": true,
+        "detail": "Full suite 11/11 passed with all three models loaded in one process. Models are freed on app exit to avoid a ggml Metal teardown assert."
+      },
+      {
+        "name": "About screen states the CoEdIT CC-BY-NC licence",
+        "pass": true,
+        "detail": "Native macOS About panel credits list all three models and licences. Builds and launches; panel not visually checked because this shell has no Accessibility access to click the menu."
+      }
+    ]
+  },
+  "S-5": {
+    "at": "2026-11-13T18:18:07.429Z",
+    "running": false,
+    "results": [
+      {
+        "name": "A paragraph with five planted errors shows five issue cards",
+        "pass": true,
+        "detail": "Preview: 'So um, the people who has worked on the the renovaton gave more then their time' gives 5 notes (Filler word, Grammar has->have, Repeated word, Commonly confused then->than, Missing end punctuation) plus 1 auto-fix (renovaton). Real CoEdIT on 4 more planted sentences: every error found with a reason (dont->doesn't, were->where, is->are, have removed, there->their, despite of, nine,)."
+      },
+      {
+        "name": "Accept all leaves no issue cards and the text matches the expected corrected text",
+        "pass": true,
+        "detail": "After Accept all: 'I think the people who have worked here are great and kind. So the people gave more than their time.' 0 notes, pending badge hidden, Save shown. Unit test: applying every edit last-first reproduces the model's sentence exactly."
+      },
+      {
+        "name": "Editing one sentence triggers one model call, not a full re-check",
+        "pass": true,
+        "detail": "Model call counter went 2 -> 3 after editing the first of two sentences. The sentence under the caret waits until the caret leaves it."
+      },
+      {
+        "name": "Auto-fixes are listed and can be undone; Ignore hides an issue for this version",
+        "pass": true,
+        "detail": "'1 auto-fixed' opens a list; Undo restores 'renovaton' and does not re-flag it. Ignore removes the note and lowers the count."
+      },
+      {
+        "name": "Real model returns one clean sentence per call",
+        "pass": true,
+        "detail": "The int8 decoder repeated the tail of unpunctuated sentences ('...their time. gave more then their time.'). Fixed with a no-repeat-3-gram rule and by keeping as many sentences as went in. 14/14 Rust tests pass with all models loaded."
+      }
+    ]
+  },
+  "S-6": {
+    "at": "2026-11-13T18:29:11.892Z",
+    "running": false,
+    "results": [
+      {
+        "name": "Selecting \"very big\" and pressing Substitute offers words like \"enormous\" or \"immense\"",
+        "pass": true,
+        "detail": "Real Qwen, first batch in ~1.5 s: enormous, vast, immense, huge, gigantic, each with a short note. In the preview, Cmd+E on the selection fills the card with 5 options."
+      },
+      {
+        "name": "Hover preview then Esc leaves the text unchanged",
+        "pass": true,
+        "detail": "Hover put 'enormous' in place and showed its note in the hint; Esc restored 'The hall was very big and full of light.' and closed the card."
+      },
+      {
+        "name": "Three presses of More return no duplicate options",
+        "pass": true,
+        "detail": "Real Qwen: 4 batches, 19-20 options, no repeats (enforced while sampling: excluded words are banned or discouraged, 3 extra items asked, repeats filtered). More batches take ~2.5-3 s. Later batches drift (e.g. 'unprecedented'). Preview: 12 distinct after 3 Mores."
+      },
+      {
+        "name": "Rephrase returns 3 rewrites that fit the sentence",
+        "pass": true,
+        "detail": "'keeping a promise that was made' -> kept our word / kept our promise / kept our commitment; 'very important' -> of great significance / of utmost importance. Rewrites that run into the next words are trimmed. Idioms are weak: 'their actual blood, sweat and tears' often echoes or drifts (model limit)."
+      },
+      {
+        "name": "1-5 picks, Cmd+R / Cmd+E switch, a newer request supersedes the old one",
+        "pass": true,
+        "detail": "Key 3 applied 'vast'. Switching tabs mid-request cancels the stale one and starts the new tab."
+      }
+    ]
+  },
+  "S-7": {
+    "at": "2026-11-13T19:20:55.933Z",
+    "running": false,
+    "results": [
+      {
+        "name": "A 15 word sentence shows 3 alternatives whose meaning matches (10 sentences by hand)",
+        "pass": true,
+        "detail": "Qwen2.5-14B: 9 of 10 test sentences gave 3 alternatives that all keep the meaning; the 10th had one that drifted. About 6 s per batch, first one in about 2.5 s, streamed."
+      },
+      {
+        "name": "More twice yields 9 distinct alternatives",
+        "pass": true,
+        "detail": "qwen_sentence_alternatives: 9 distinct of 9."
+      },
+      {
+        "name": "Applied alternative appears in the version history diff",
+        "pass": true,
+        "detail": "Preview: applied an alternative, saved v5; the Versions panel lists 'Alternative: So let me begin ... -> Let me begin, simply, by thanking ...' and the diff marks the new words."
+      }
+    ]
+  },
+  "S-8": {
+    "at": "2026-11-13T19:20:55.932Z",
+    "running": false,
+    "results": [
+      {
+        "name": "Three review passes produce three versions with correct change lists",
+        "pass": true,
+        "detail": "versions::three_passes_then_restore passes; in the preview each Save added a version whose panel entry lists that review's changes."
+      },
+      {
+        "name": "Restoring v1 creates v4 equal to v1",
+        "pass": true,
+        "detail": "Preview: with v1, v2 saved and an unsaved edit, Restore as v4 saved the draft as v3 and v4's text equals v1. Backend test passes too."
+      },
+      {
+        "name": "Killing the app mid-review and reopening restores the unsaved text",
+        "pass": true,
+        "detail": "Autosave writes text.md atomically 400 ms after each change and on close; open_doc reads it back as a draft (library tests pass). Not driven by killing the native window."
+      }
+    ]
+  },
+  "S-9": {
+    "at": "2026-11-13T19:25:55.215Z",
+    "running": false,
+    "results": [
+      {
+        "name": "With 1 pending suggestion, Save is not shown.",
+        "pass": true,
+        "detail": "Preview: after Proofread with 5 pending, Save is hidden; with 0 it shows."
+      },
+      {
+        "name": "Save with 0 pending creates a new version and leaves no marks in the text.",
+        "pass": true,
+        "detail": "Preview: Save made v1 with 0 marks and 0 margin notes; badge, Proofread and auto-fixed hidden; Export and Request review shown."
+      },
+      {
+        "name": "Request review after Save shows new suggestions and keeps the saved version unchanged in history.",
+        "pass": true,
+        "detail": "Preview: Request review moved to v2 and showed 2 suggestions; v1 in the Versions panel is unchanged."
+      },
+      {
+        "name": "Markdown export of the latest saved version matches its text exactly.",
+        "pass": true,
+        "detail": "versions test: the exported .md equals the saved text byte for byte (and a second export gets ' (2)'). Preview stand-in matched too."
+      }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cader</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header class="topbar" data-tauri-drag-region>
+      <div class="logo" aria-label="Cader"></div>
+      <nav class="crumbs" data-tauri-drag-region>
+        <button class="crumb" id="to-library">Library</button><span class="doc-crumbs"><span class="sep">/</span><span class="title" id="doc-title"></span><span class="kind" id="doc-kind"></span></span>
+      </nav>
+      <div class="actions">
+        <button class="plain" id="proofread">Proofread</button>
+        <div class="pending-wrap">
+          <button class="plain muted" id="autofixed" aria-haspopup="true" aria-expanded="false" title="Review auto-fixes"></button>
+          <div class="dropdown" id="autofixed-list" hidden></div>
+        </div>
+        <div class="pending-wrap">
+          <button class="badge" id="pending" aria-haspopup="true" aria-expanded="false" title="Pending suggestions"></button>
+          <div class="dropdown" id="pending-list" hidden></div>
+        </div>
+        <button class="plain outline" id="request-review" hidden>Request review</button>
+        <div class="stepper" aria-label="Version">
+          <button class="step" id="v-prev" aria-label="Previous version">&#8249;</button>
+          <button id="v-label" aria-haspopup="true" aria-expanded="false" title="Versions"></button>
+          <button class="step" id="v-next" aria-label="Next version">&#8250;</button>
+        </div>
+        <button class="publish" id="save" hidden>Save</button>
+        <div class="pending-wrap" id="export-wrap" hidden>
+          <button class="publish" id="export" aria-haspopup="true" aria-expanded="false">Export &#9662;</button>
+          <div class="dropdown menu" id="export-menu" hidden>
+            <button data-x="copy">Copy text<span class="kbd">&#8984;&#8679;C</span></button>
+            <button data-x="md">Markdown (.md)</button>
+            <button data-x="txt">Plain text (.txt)</button>
+            <div class="rule speech-only"></div>
+            <button data-x="read" class="speech-only">Reading view<span class="kbd">&#8984;&#8679;R</span></button>
+            <button data-x="pdf" class="speech-only">PDF, one paragraph per block</button>
+            <div class="menu-note" id="export-note"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="library" id="library" hidden>
+      <div class="lib-head">
+        <h1>Library</h1>
+        <div class="lib-new">
+          <button class="new" data-kind="speech">New speech</button>
+          <button class="new" data-kind="blog">New blog post</button>
+        </div>
+      </div>
+      <ul class="docs" id="docs"></ul>
+    </main>
+
+    <div id="editor" hidden>
+    <main class="surface">
+      <aside class="notes" id="notes"></aside>
+      <article class="doc">
+        <div class="vbar" id="vbar" hidden>
+          <span class="pill" id="vbar-what"></span>
+          <label for="vbar-against">compared with</label>
+          <select class="pill" id="vbar-against"></select>
+          <span class="ro">Read only</span>
+        </div>
+        <h1 id="doc-heading" contenteditable="true" spellcheck="false"></h1>
+        <div class="body" id="doc-body" contenteditable="true" spellcheck="false"></div>
+        <div class="body diff" id="ver-body" hidden></div>
+      </article>
+      <aside class="side">
+        <div class="card versions" id="versions" hidden>
+          <div class="vhead"><b>Versions</b><span>Esc to close</span></div>
+          <div id="vlist"></div>
+        </div>
+        <div class="card" id="card" hidden>
+          <div class="tabs" role="tablist">
+            <button role="tab" data-tab="rephrase">Rephrase</button>
+            <button role="tab" data-tab="substitute">Substitute</button>
+            <button role="tab" data-tab="sentence">Sentence</button>
+          </div>
+          <div class="options" id="options"></div>
+          <div class="hint" id="hint"></div>
+          <div class="card-foot"><button class="link" id="more">More &#8635;</button><button class="link quiet" id="ignore">Ignore</button></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="record">
+      <button class="rec" id="rec" aria-label="Start recording"><span class="ring"></span><span class="dot"><span class="stop"></span></span></button>
+      <span class="time" id="rec-time"></span>
+    </footer>
+    </div>
+    <div class="status" id="status"></div>
+
+    <div class="reader" id="reader" hidden>
+      <div class="reader-top"><span id="reader-title"></span><span class="reader-acts"><button id="reader-smaller" aria-label="Smaller type">A&#8722;</button><button id="reader-larger" aria-label="Larger type">A+</button><button id="reader-close">Esc to close</button></span></div>
+      <div class="reader-text" id="reader-text"></div>
+      <div class="reader-foot" id="reader-foot"></div>
+    </div>
+    <div class="print-out" id="print-out"></div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

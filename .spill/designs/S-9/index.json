@@ -1,0 +1,23 @@
+{
+  "next": 44,
+  "artboards": [
+    {
+      "id": "ab-1",
+      "title": "Saved, clean, with Export menu",
+      "variant": "",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T18:52:58.555Z",
+      "status": "waiting"
+    },
+    {
+      "id": "ab-2",
+      "title": "Reading view (speech)",
+      "variant": "",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T18:52:58.556Z",
+      "status": "waiting"
+    }
+  ]
+}

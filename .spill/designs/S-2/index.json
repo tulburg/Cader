@@ -1,0 +1,41 @@
+{
+  "next": 826,
+  "artboards": [
+    {
+      "id": "ab-1",
+      "title": "A. Paper, two columns (brief)",
+      "variant": "A",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T16:49:48.193Z",
+      "status": "waiting"
+    },
+    {
+      "id": "ab-2",
+      "title": "B. Manuscript with margin notes",
+      "variant": "B",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T16:49:48.195Z",
+      "status": "waiting"
+    },
+    {
+      "id": "ab-3",
+      "title": "C. Sentence studio",
+      "variant": "C",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T16:49:48.196Z",
+      "status": "waiting"
+    },
+    {
+      "id": "ab-469",
+      "title": "B. Pending list open",
+      "variant": "B",
+      "width": "1440px",
+      "height": "900px",
+      "created": "2026-11-13T17:30:00.483Z",
+      "status": "waiting"
+    }
+  ]
+}
