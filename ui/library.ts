@@ -1,6 +1,6 @@
 // The library view (S-1 Req 4): list documents, and create, open, rename and delete them.
 
-import { api, type DocKind, type DocMeta } from "./api";
+import { api, type DocMeta } from "./api";
 import { openEditor } from "./main";
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -43,7 +43,6 @@ export async function showLibrary(): Promise<void> {
         .map(
           (d) => `<li class="row" data-id="${escapeHtml(d.id)}">
   <button class="t" data-act="open" title="Open">${escapeHtml(d.title)}</button>
-  <span class="k">${d.kind === "speech" ? "Speech" : "Blog"}</span>
   <span>${edited(d.updated)}</span>
   <span class="st ${d.status}">${saved(d)}</span>
   <span class="ops"><button data-act="rename">Rename</button><button data-act="delete">Delete</button></span>
@@ -53,21 +52,19 @@ export async function showLibrary(): Promise<void> {
     : `<li class="lib-empty">No documents yet. Start a speech or a blog post.</li>`;
 }
 
-document.querySelectorAll<HTMLButtonElement>(".new").forEach((b) =>
-  b.addEventListener("click", async () => {
-    const kind = b.dataset.kind as DocKind;
-    const meta = await api.createDoc(kind === "speech" ? "Untitled speech" : "Untitled post", kind);
-    await openEditor(meta.id);
-    // Select the placeholder title so typing replaces it.
-    const h = $("doc-heading");
-    const range = document.createRange();
-    range.selectNodeContents(h);
-    const sel = window.getSelection()!;
-    sel.removeAllRanges();
-    sel.addRange(range);
-    h.focus();
-  }),
-);
+// One kind of document (S-1 Req 4). The backend still stores a kind for older builds; it is not shown.
+$("new-doc").addEventListener("click", async () => {
+  const meta = await api.createDoc("Untitled", "speech");
+  await openEditor(meta.id);
+  // Select the placeholder title so typing replaces it.
+  const h = $("doc-heading");
+  const range = document.createRange();
+  range.selectNodeContents(h);
+  const sel = window.getSelection()!;
+  sel.removeAllRanges();
+  sel.addRange(range);
+  h.focus();
+});
 
 list.addEventListener("click", async (e) => {
   const btn = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-act]");

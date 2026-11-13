@@ -35,7 +35,6 @@ interface Option {
 const doc = {
   id: "",
   title: "",
-  kind: "Speech",
   version: 1,
   versions: 1,
   autoFixed: 0,
@@ -153,7 +152,6 @@ function wordRe(span: string): RegExp {
 function renderDoc(): void {
   $("doc-title").textContent = doc.title;
   $("doc-heading").textContent = doc.title;
-  $("doc-kind").textContent = doc.kind;
   document.title = `${doc.title} - Cader`;
   if (!doc.paragraphs.length) {
     bodyEl.innerHTML = "<p><br></p>";
@@ -1021,7 +1019,7 @@ document.addEventListener("selectionchange", () => {
 document.addEventListener("keydown", (e) => {
   if (!$("reader").hidden) return readerKey(e);
   const k = e.key.toLowerCase();
-  if (e.metaKey && e.shiftKey && doc.saved && !$("editor").hidden && (k === "c" || (k === "r" && doc.kind === "Speech"))) {
+  if (e.metaKey && e.shiftKey && doc.saved && !$("editor").hidden && (k === "c" || k === "r")) {
     e.preventDefault();
     void exportAs(k === "c" ? "copy" : "read");
     return;
@@ -1325,12 +1323,10 @@ export async function openEditor(id: string): Promise<void> {
   const { meta, text } = await api.openDoc(id);
   doc.id = meta.id;
   doc.title = meta.title;
-  doc.kind = meta.kind === "speech" ? "Speech" : "Blog";
   doc.paragraphs = text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
   const saved = await api.listVersions(id).catch(() => []);
   doc.saved = meta.status === "saved" && saved.length > 0;
   doc.savedAt = saved[0]?.time ?? 0;
-  document.body.classList.toggle("is-speech", meta.kind === "speech");
   doc.version = doc.versions = saved.length + (doc.saved ? 0 : 1);
   doc.typed = false;
   // Sample suggestions belong to the example text only; drop any whose span is gone.

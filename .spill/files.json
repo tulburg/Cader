@@ -22,15 +22,15 @@
     },
     {
       "path": "ui/index.html",
-      "change": "new"
+      "change": "changed"
     },
     {
       "path": "ui/app.css",
-      "change": "new"
+      "change": "changed"
     },
     {
       "path": "ui/main.ts",
-      "change": "new"
+      "change": "changed"
     },
     {
       "path": "ui/logo.svg",
@@ -72,7 +72,7 @@
     },
     {
       "path": "ui/library.ts",
-      "change": "new"
+      "change": "changed"
     },
     {
       "path": "src-tauri/src/main.rs",

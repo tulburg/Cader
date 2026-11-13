@@ -1,0 +1,57 @@
+{
+  "S-1": {
+    "at": "2026-11-13T20:19:38.750Z",
+    "items": [
+      {
+        "text": "One New button in the library",
+        "done": true
+      },
+      {
+        "text": "New creates an Untitled document with the title selected",
+        "done": true
+      },
+      {
+        "text": "Remove the kind column and its style",
+        "done": true
+      },
+      {
+        "text": "Check in the preview",
+        "done": true
+      }
+    ]
+  },
+  "S-2": {
+    "at": "2026-11-13T20:19:58.534Z",
+    "items": [
+      {
+        "text": "Remove the kind tag from the breadcrumb",
+        "done": true
+      },
+      {
+        "text": "Check in the preview",
+        "done": true
+      }
+    ]
+  },
+  "S-9": {
+    "at": "2026-11-13T20:20:20.605Z",
+    "items": [
+      {
+        "text": "Show Reading view and PDF for every document",
+        "done": true
+      },
+      {
+        "text": "Cmd+Shift+R opens the reading view for every document",
+        "done": true
+      },
+      {
+        "text": "Remove the speech-only state from the UI",
+        "done": true
+      },
+      {
+        "text": "Check in the preview",
+        "done": true
+      }
+    ]
+  }
+}

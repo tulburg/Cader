@@ -1,6 +1,6 @@
 {
   "S-2": {
-    "at": "2026-11-13T17:40:16.150Z",
+    "at": "2026-11-13T20:19:58.537Z",
     "running": false,
     "results": [
       {
@@ -37,11 +37,16 @@
         "name": "Hover preview, Esc restore, 1-5 pick, More without repeats",
         "pass": true,
         "detail": "Hover showed 'paramount' in place, Esc restored 'very important'; key 1 applied; 3x More gave 5 distinct options."
+      },
+      {
+        "name": "The breadcrumb shows no Speech or Blog tag.",
+        "pass": true,
+        "detail": "Preview: the breadcrumb reads 'Library / Remarks for the Riverside Library Opening' with no kind element."
       }
     ]
   },
   "S-1": {
-    "at": "2026-11-13T17:47:08.375Z",
+    "at": "2026-11-13T20:19:38.754Z",
     "running": false,
     "results": [
       {
@@ -73,6 +78,11 @@
         "name": "Rust unit tests",
         "pass": true,
         "detail": "cargo test: 3 passed."
+      },
+      {
+        "name": "The library shows one New button and no Speech or Blog tag; New opens an \"Untitled\" document.",
+        "pass": true,
+        "detail": "Preview: the library has one New button and rows show title, edited time and status only (0 kind tags). New opened a document titled 'Untitled' with the title selected."
       }
     ]
   },
@@ -258,7 +268,7 @@
     ]
   },
   "S-9": {
-    "at": "2026-11-13T19:25:55.215Z",
+    "at": "2026-11-13T20:20:20.608Z",
     "running": false,
     "results": [
       {
@@ -280,6 +290,11 @@
         "name": "Markdown export of the latest saved version matches its text exactly.",
         "pass": true,
         "detail": "versions test: the exported .md equals the saved text byte for byte (and a second export gets ' (2)'). Preview stand-in matched too."
+      },
+      {
+        "name": "A saved document made with New lists Reading view and PDF in its Export menu.",
+        "pass": true,
+        "detail": "Preview: New, typed a paragraph, Save; Export lists Copy text, Markdown, Plain text, Reading view and PDF, and Cmd+Shift+R opens the reading view on it."
       }
     ]
   }

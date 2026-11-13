@@ -10,7 +10,7 @@
     <header class="topbar" data-tauri-drag-region>
       <div class="logo" aria-label="Cader"></div>
       <nav class="crumbs" data-tauri-drag-region>
-        <button class="crumb" id="to-library">Library</button><span class="doc-crumbs"><span class="sep">/</span><span class="title" id="doc-title"></span><span class="kind" id="doc-kind"></span></span>
+        <button class="crumb" id="to-library">Library</button><span class="doc-crumbs"><span class="sep">/</span><span class="title" id="doc-title"></span></span>
       </nav>
       <div class="actions">
         <button class="plain" id="proofread">Proofread</button>
@@ -35,9 +35,9 @@
             <button data-x="copy">Copy text<span class="kbd">&#8984;&#8679;C</span></button>
             <button data-x="md">Markdown (.md)</button>
             <button data-x="txt">Plain text (.txt)</button>
-            <div class="rule speech-only"></div>
-            <button data-x="read" class="speech-only">Reading view<span class="kbd">&#8984;&#8679;R</span></button>
-            <button data-x="pdf" class="speech-only">PDF, one paragraph per block</button>
+            <div class="rule"></div>
+            <button data-x="read">Reading view<span class="kbd">&#8984;&#8679;R</span></button>
+            <button data-x="pdf">PDF, one paragraph per block</button>
             <div class="menu-note" id="export-note"></div>
           </div>
         </div>
@@ -48,8 +48,7 @@
       <div class="lib-head">
         <h1>Library</h1>
         <div class="lib-new">
-          <button class="new" data-kind="speech">New speech</button>
-          <button class="new" data-kind="blog">New blog post</button>
+          <button class="new" id="new-doc">New</button>
         </div>
       </div>
       <ul class="docs" id="docs"></ul>

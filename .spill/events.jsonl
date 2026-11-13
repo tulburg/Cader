@@ -188,3 +188,41 @@
 {"at":"2026-11-13T19:25:55.215Z","actor":"claude","action":"checks","card":"S-9","detail":"4 of 4 passed"}
 {"at":"2026-11-13T19:25:55.216Z","actor":"claude","action":"status","card":"S-9","detail":"active -> done: Built and checked in the preview and Rust tests. The PDF print dialog and Finder reveal were not driven in the native window."}
 {"at":"2026-11-13T19:26:07.685Z","actor":"claude","action":"focus","card":"-","detail":"cleared"}
+{"at":"2026-11-13T20:04:38.693Z","actor":"user","action":"message","card":"-","detail":"there's no difference between speech or blog, this should just say new. And you can remove the tag on the title as well [attached: /Users/tulburg/Developer/Cader/.spill/attachments/2026-11-13T20-04-38-693Z-image.png]"}
+{"at":"2026-11-13T20:05:07.684Z","actor":"claude","action":"draft_spec","card":"S-10","detail":"One kind of document: a single New, no kind tag"}
+{"at":"2026-11-13T20:05:12.916Z","actor":"claude","action":"reply","card":"-","detail":"Drafted as S-10: one New button (new documents start as \"Untitled\"), no kind tag in the library or the editor, and Reading view and PDF export become available for every document since they were speech-only. Approve and Build S-10 and I will make the change.","thread":"2026-11-13T20:04:38.693Z"}
+{"at":"2026-11-13T20:05:12.917Z","actor":"claude","action":"focus","card":"S-10","detail":"discussing S-10"}
+{"at":"2026-11-13T20:08:01.850Z","actor":"claude","action":"focus","card":"-","detail":"cleared"}
+{"at":"2026-11-13T20:08:17.972Z","actor":"claude","action":"update","card":"S-1","detail":"body"}
+{"at":"2026-11-13T20:08:17.973Z","actor":"claude","action":"comment","card":"S-1","detail":"User (board message, 2026-11-13): \"there's no difference between speech or blog, this should just say new. And you can remove the tag on the title as well\". Folded in here instead of a separate spec (S-10, now deleted). Req 3 and 4: one kind of document, a single New button, no kind column (also 'published' -> 'saved' per D-7, same line). Back to draft for approval."}
+{"at":"2026-11-13T20:08:17.974Z","actor":"claude","action":"status","card":"S-1","detail":"done -> draft"}
+{"at":"2026-11-13T20:08:17.975Z","actor":"claude","action":"update","card":"S-2","detail":"body"}
+{"at":"2026-11-13T20:08:17.975Z","actor":"claude","action":"comment","card":"S-2","detail":"User (board message, 2026-11-13): \"there's no difference between speech or blog, this should just say new. And you can remove the tag on the title as well\". Folded in here instead of a separate spec (S-10, now deleted). Req 2: no kind tag in the breadcrumb. Back to draft for approval."}
+{"at":"2026-11-13T20:08:17.976Z","actor":"claude","action":"status","card":"S-2","detail":"done -> draft"}
+{"at":"2026-11-13T20:08:17.977Z","actor":"claude","action":"update","card":"S-9","detail":"body"}
+{"at":"2026-11-13T20:08:17.977Z","actor":"claude","action":"comment","card":"S-9","detail":"User (board message, 2026-11-13): \"there's no difference between speech or blog, this should just say new. And you can remove the tag on the title as well\". Folded in here instead of a separate spec (S-10, now deleted). Req 5: Reading view and PDF are no longer speech-only. Back to draft for approval."}
+{"at":"2026-11-13T20:08:17.977Z","actor":"claude","action":"status","card":"S-9","detail":"done -> draft"}
+{"at":"2026-11-13T20:08:22.669Z","actor":"claude","action":"focus","card":"S-1","detail":"discussing S-1, S-2, S-9"}
+{"at":"2026-11-13T20:09:32.947Z","actor":"claude","action":"reply","card":"-","detail":"Update: S-10 is deleted. The change is now in the specs that own it: S-1 (one New button, no kind column), S-2 (no kind tag in the breadcrumb) and S-9 (Reading view and PDF for every document). All three are back in draft; approve and Build them and I will make the change.","thread":"2026-11-13T20:04:38.693Z"}
+{"at":"2026-11-13T20:18:08.303Z","actor":"user","action":"status","card":"S-1","detail":"draft -> approved"}
+{"at":"2026-11-13T20:18:09.492Z","actor":"user","action":"status","card":"S-1","detail":"approved -> queued"}
+{"at":"2026-11-13T20:18:11.399Z","actor":"user","action":"status","card":"S-2","detail":"draft -> approved"}
+{"at":"2026-11-13T20:18:12.283Z","actor":"user","action":"status","card":"S-2","detail":"approved -> queued"}
+{"at":"2026-11-13T20:18:16.105Z","actor":"user","action":"status","card":"S-9","detail":"draft -> approved"}
+{"at":"2026-11-13T20:18:16.950Z","actor":"user","action":"status","card":"S-9","detail":"approved -> queued"}
+{"at":"2026-11-13T20:18:27.828Z","actor":"claude","action":"status","card":"S-1","detail":"queued -> active: Starting the Req 4 update: one New button, no kind column."}
+{"at":"2026-11-13T20:19:38.751Z","actor":"claude","action":"comment","card":"S-1","detail":"Req 4 updated: the library has one New button (creates \"Untitled\", title selected) and no kind column; the status column is wider since it now reads 'Draft · v2 saved 3 h ago'. The backend still stores kind 'speech' for new documents so older builds can open them; the UI no longer shows it. Reqs 1-6 done."}
+{"at":"2026-11-13T20:19:38.753Z","actor":"claude","action":"files","card":"S-1","detail":"changed ui/index.html, changed ui/library.ts, changed ui/app.css"}
+{"at":"2026-11-13T20:19:38.754Z","actor":"claude","action":"checks","card":"S-1","detail":"7 of 7 passed"}
+{"at":"2026-11-13T20:19:38.755Z","actor":"claude","action":"status","card":"S-1","detail":"active -> done: One New button, no kind column; checked in the preview."}
+{"at":"2026-11-13T20:19:38.757Z","actor":"claude","action":"status","card":"S-2","detail":"queued -> active: Starting the Req 2 update: no kind tag in the breadcrumb."}
+{"at":"2026-11-13T20:19:58.535Z","actor":"claude","action":"comment","card":"S-2","detail":"Req 2 updated: the breadcrumb is Library / title, the kind tag and its style are removed. Reqs 1-9 done."}
+{"at":"2026-11-13T20:19:58.537Z","actor":"claude","action":"files","card":"S-2","detail":"changed ui/index.html, changed ui/main.ts, changed ui/app.css"}
+{"at":"2026-11-13T20:19:58.537Z","actor":"claude","action":"checks","card":"S-2","detail":"8 of 8 passed"}
+{"at":"2026-11-13T20:19:58.538Z","actor":"claude","action":"status","card":"S-2","detail":"active -> done: No kind tag in the breadcrumb; checked in the preview."}
+{"at":"2026-11-13T20:19:58.540Z","actor":"claude","action":"status","card":"S-9","detail":"queued -> active: Starting the Req 5 update: Reading view and PDF for every document."}
+{"at":"2026-11-13T20:20:20.606Z","actor":"claude","action":"comment","card":"S-9","detail":"Req 5 updated: Reading view and PDF are in every document's Export menu and Cmd+Shift+R works for all; the speech-only class and the UI's document kind are gone. Reqs 1-6 done."}
+{"at":"2026-11-13T20:20:20.608Z","actor":"claude","action":"files","card":"S-9","detail":"changed ui/index.html, changed ui/main.ts, changed ui/app.css"}
+{"at":"2026-11-13T20:20:20.608Z","actor":"claude","action":"checks","card":"S-9","detail":"5 of 5 passed"}
+{"at":"2026-11-13T20:20:20.609Z","actor":"claude","action":"status","card":"S-9","detail":"active -> done: Reading view and PDF for every document; checked in the preview."}
+{"at":"2026-11-13T20:20:20.609Z","actor":"claude","action":"focus","card":"-","detail":"cleared"}
